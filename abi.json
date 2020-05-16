@@ -1,0 +1,109 @@
+[
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "server_id",
+				"type": "uint256"
+			},
+			{
+				"name": "typ",
+				"type": "string"
+			},
+			{
+				"name": "data",
+				"type": "string"
+			},
+			{
+				"name": "timestamp",
+				"type": "string"
+			}
+		],
+		"name": "createLog",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "log_id",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"name": "server_id",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"name": "typ",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"name": "data",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"name": "timestamp",
+				"type": "string"
+			}
+		],
+		"name": "LogCreated",
+		"type": "event"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "logCount",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "logs",
+		"outputs": [
+			{
+				"name": "log_id",
+				"type": "uint256"
+			},
+			{
+				"name": "server_id",
+				"type": "uint256"
+			},
+			{
+				"name": "typ",
+				"type": "string"
+			},
+			{
+				"name": "data",
+				"type": "string"
+			},
+			{
+				"name": "timestamp",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	}
+]

@@ -1,4 +1,4 @@
-from LogCollector.grabber import start_monitor
+# from LogCollector.grabber import start_monitor
 from time import sleep
 from threading import Thread
 from SmartContract.read import read
@@ -7,6 +7,7 @@ from os import system, path, _exit
 from queue import Queue
 import sys
 from datetime import datetime
+time = ""
 
 def pre_menu():
     print("1) Connect as a Client.")
@@ -20,10 +21,11 @@ def pre_menu():
         print('Start Ganache on 0.0.0.0 and hit enter.')
         ip_addr = "0.0.0.0"
     
-    address = print("Enter Address of Smart Contract") 
+    address = "0xE971e88b6Cf30d21F1A62D6296ecf6D56924C5Ad" 
     return "http://" + ip_addr + ":" + "7545" , address, inp
 
 def menu_client():
+    global time
     print("1) Fetch Updates From Blockchain and Apply.")
     print("2) Exit.")
 
@@ -32,7 +34,7 @@ def menu_client():
     timestamp = datetime.timestamp(now)
     
     if inp == 1:
-        read(ganache_url, path_to_abi, address, server_id, datetime.fromtimestamp(timestamp))
+        time = read(ganache_url, path_to_abi, address, server_id, time)
     else:
         exit(0)
 
@@ -49,6 +51,7 @@ def menu_server():
         data = input("Enter Command to run")
     elif inp == 2:
         data = input("Enter package name to install") 
+        data = "apt-get install " + data
     elif inp == 3:
         data = "apt-get update && apt-get upgrade"
     
@@ -65,9 +68,11 @@ path_to_abi = path.abspath('abi.json')
 server_id = 3333
 
 if inp == 1:
-    menu_client()
+    while True:
+        menu_client()
 else:
-    menu_server()
+    while True:
+        menu_server()
 
 
 

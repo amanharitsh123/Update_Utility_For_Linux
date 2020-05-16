@@ -20,7 +20,7 @@ def write(ganache_url, path_to_abi, address, server_id, q):
     timestamp = datetime.timestamp(now)
     
     # Writing data to blockchain
-    while True:
-        if q:
-            typ,data = q.get()
-            contract.functions.createLog(server_id, typ, data, str(datetime.fromtimestamp(timestamp))).transact()
+    
+    typ,data = q
+    typ = str(typ)
+    contract.functions.createLog(server_id, typ, data, str(datetime.fromtimestamp(timestamp))).transact()
